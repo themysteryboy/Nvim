@@ -84,12 +84,12 @@ packer.startup (
             use "rebelot/kanagawa.nvim"
 
             -- beautiful scroll
-            use {
-                'karb94/neoscroll.nvim',
-                config = function()
-                    require('neoscroll').setup()
-                end
-            }
+            -- use {
+            --     'karb94/neoscroll.nvim',
+            --     config = function()
+            --         require('neoscroll').setup()
+            --     end
+            -- }
 
             -- todo tree
             use {

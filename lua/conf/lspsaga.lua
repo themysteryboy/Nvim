@@ -29,12 +29,12 @@ saga.init_lsp_saga({
     -- add bracket or something with diagnostic source, just have 2 elements
     diagnostic_source_bracket = {},
     -- use emoji lightbulb in default
-    code_action_icon = "💡",
+    -- code_action_icon = "💡",
     -- if true can press number to execute the codeaction in codeaction window
     code_action_num_shortcut = true,
     -- same as nvim-lightbulb but async
     code_action_lightbulb = {
-        enable = true,
+        enable = false,
         sign = true,
         sign_priority = 20,
         virtual_text = true,
@@ -64,17 +64,33 @@ saga.init_lsp_saga({
     server_filetype_map = {},
 })
 
--- show hover doc
+-- Show hover doc
 vim.keymap.set("n", "K", require("lspsaga.hover").render_hover_doc, { silent = true, noremap = true })
--- or use command
-vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 
+-- Scroll
 local action = require("lspsaga.action")
 -- scroll down hover doc or scroll in definition preview
-vim.keymap.set("n", "<C-f>", function()
+vim.keymap.set("n", "<C-x>", function()
     action.smart_scroll_with_saga(1)
 end, { silent = true })
 -- scroll up hover doc
-vim.keymap.set("n", "<C-b>", function()
+vim.keymap.set("n", "<C-z>", function()
     action.smart_scroll_with_saga(-1)
 end, { silent = true })
+
+-- Check out diagnostic
+vim.keymap.set("n", "<leader>e", require("lspsaga.diagnostic").show_line_diagnostics, { silent = true })
+-- jump diagnostic
+vim.keymap.set("n", "[d", require("lspsaga.diagnostic").goto_prev, { silent = true })
+vim.keymap.set("n", "]d", require("lspsaga.diagnostic").goto_next, { silent = true })
+
+-- Preview definition
+vim.keymap.set("n", "gd", require("lspsaga.definition").preview_definition, { silent = true })
+
+-- Rename
+vim.keymap.set("n", "<leader>rn", require("lspsaga.rename").lsp_rename, { silent = true })
+-- close rename win use <C-c> in insert mode or `q` in normal mode or `:q`
+
+-- Code Action
+vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
+vim.keymap.set("v", "<leader>ca", "<cmd><C-U>Lspsaga range_code_action<CR>", { silent = true })
