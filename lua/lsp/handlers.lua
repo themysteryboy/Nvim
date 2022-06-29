@@ -8,7 +8,7 @@ end
 
 -- UI Settings
 vim.diagnostic.config({
-	virtual_text = false,
+	virtual_text = true,
 	signs = true,
 	underline = false,
 	update_in_insert = false,
@@ -62,6 +62,10 @@ require('lspconfig')['sumneko_lua'].setup{
     flags = lsp_flags,
 }
 require('lspconfig')['clangd'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
+require('lspconfig')['gopls'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
 }

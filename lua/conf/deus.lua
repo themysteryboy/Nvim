@@ -24,44 +24,44 @@ local deus = {
   gray        = '#928374';
   gray_light  = '#c0c0c0';
   white       = '#ffffff';
-  
+
   dsdark0       = '#2C323B';
   dsdark1       = '#3c3836';
   dsdark2       = '#242a32';
   dsdark3       = '#665c54';
   dsdark4       = '#7c6f64';
   dsdark4_256   = '#7c6f64';
-  
+
   dsColumn       = '#35312f';
-  
+
   dslight0      = '#d2d2d2';
   dslight1      = '#ebdbb2';
   dslight2      = '#d5c4a1';
   dslight3      = '#bdae93';
   dslight4      = '#a89984';
   dslight4_256  = '#a89984';
-  
+
   tan = '#f4c069';
-  
+
   red       = '#fb4934';
   red_dark  = '#a80000';
   red_light = '#ff4090';
-  
+
   orange       = '#fe8019';
   orange_light = '#f0af00';
-  
+
   yellow = '#fabd2f';
-  
+
   green_dark  = '#50de60';
   green       = '#98C379';
   green_light = '#a0ff70';
-  
+
   blue     = '#83a598';
   cyan     = '#8ec07c';
   ice      = '#49a0f0';
   teal     = '#00d0c0';
   turqoise = '#2bff99';
-  
+
   magenta      = '#d5508f';
   magenta_dark = '#bb0099';
   pink         = '#ffa6ff';
@@ -160,7 +160,7 @@ function deus.load_syntax()
     SpellLocal = {fg=deus.cyan,bg=deus.none,style='undercurl'};
     SpellRare = {fg=deus.pink,bg=deus.none,style = 'undercurl'};
     Visual = {style='inverse'};
-    VisualNOS = {bg=gray_darker};
+    VisualNOS = {bg=deus.gray_darker};
     QuickFixLine = {fg=deus.pink,style='bold'};
     Debug = {fg=deus.orange};
     debugBreakpoint = {fg=deus.bg,bg=deus.red};
