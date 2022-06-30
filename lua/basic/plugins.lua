@@ -13,15 +13,15 @@ packer.startup (
 			    end,
 			})
 
-			use {
-				'folke/lsp-colors.nvim',
-				require("lsp-colors").setup({
-				  Error = "#db4b4b",
-				  Warning = "#e0af68",
-				  Information = "#0db9d7",
-				  Hint = "#10B981"
-				})
-			}
+			-- use {
+			-- 	'folke/lsp-colors.nvim',
+			-- 	require("lsp-colors").setup({
+			-- 	  Error = "#db4b4b",
+			-- 	  Warning = "#e0af68",
+			-- 	  Information = "#0db9d7",
+			-- 	  Hint = "#10B981"
+			-- 	})
+			-- }
 
 			-- cmp plugins
 			use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -47,6 +47,7 @@ packer.startup (
 			-- ColorSchemes
 			use {
 				'marko-cerovac/material.nvim',
+				'glepnir/zephyr-nvim',
 				'shaunsingh/moonlight.nvim',
 				"sainnhe/gruvbox-material",
 				"drewtempelmeyer/palenight.vim",
@@ -84,12 +85,12 @@ packer.startup (
             use "rebelot/kanagawa.nvim"
 
             -- beautiful scroll
-            -- use {
-            --     'karb94/neoscroll.nvim',
-            --     config = function()
-            --         require('neoscroll').setup()
-            --     end
-            -- }
+            use {
+                'karb94/neoscroll.nvim',
+                config = function()
+                    require('neoscroll').setup()
+                end
+            }
 
             -- todo tree
             use {

@@ -31,7 +31,7 @@ local floatTerm =
         on_open = function(term)
             inInsert()
             -- ESC to exit in float term
-            vim.keybinds.bmap(term.bufnr, "t", "<Esc>", "<C-\\><C-n>:close<CR>", vim.keybinds.opts)
+            vim.keybinds.bmap(term.bufnr, "t", "<C-Esc>", "<C-\\><C-n>:close<CR>", vim.keybinds.opts)
         end,
         on_close = function()
             -- Reset Esc
