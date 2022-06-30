@@ -4,4 +4,4 @@ require("basic.config")
 require("basic.keybinds")
 require("lsp")
 
-vim.cmd([[set cmdheight=0]])
+-- set cmdheight = 0

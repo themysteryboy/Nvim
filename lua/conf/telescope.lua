@@ -5,7 +5,7 @@ require("telescope").setup()
 -- Find file
 vim.keybinds.gmap("n", "ff", "<cmd>Telescope find_files theme=dropdown<CR>", vim.keybinds.opts)
 -- Find words
-vim.keybinds.gmap("n", "fg", "<cmd>Telescope live_grep theme=dropdown<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "fw", "<cmd>Telescope live_grep theme=dropdown<CR>", vim.keybinds.opts)
 -- Find special signs
 vim.keybinds.gmap("n", "fb", "<cmd>Telescope buffers theme=dropdown<CR>", vim.keybinds.opts)
 -- Find help doc

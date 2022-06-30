@@ -72,7 +72,6 @@ cmp.setup {
         	path = "Path",
         	spell = "Spell",
         	calc = "Calc",
-        	emoji = "Emoji",
 			look = "Look",
 			})[entry.source.name]
 		return vim_item
@@ -116,6 +115,5 @@ cmp.setup {
     { name = "look" },
     { name = "calc" },
     { name = "spell" },
-    { name = "emoji" }
   },
 }
