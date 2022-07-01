@@ -4,6 +4,15 @@ packer.startup(
 	{
 		function()
 
+			-- Competitive Programmig
+			use {
+				'xeluxee/competitest.nvim',
+				requires = 'MunifTanjim/nui.nvim',
+				config = function ()
+					require("conf.cp")
+				end
+			}
+
 			-- lsp beautify
 			use({
 				"glepnir/lspsaga.nvim",
