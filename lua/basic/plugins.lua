@@ -43,15 +43,6 @@ packer.startup(
 			use "neovim/nvim-lspconfig" -- enable LSP
 			use "williamboman/nvim-lsp-installer" -- simple to use language server installer
 
-			-- ColorSchemes
-			use {
-				'marko-cerovac/material.nvim',
-				'glepnir/zephyr-nvim',
-				'shaunsingh/moonlight.nvim',
-				"sainnhe/gruvbox-material",
-				"drewtempelmeyer/palenight.vim",
-			}
-
 			-- Bufferline
 			use {
 				"akinsho/bufferline.nvim",
@@ -79,9 +70,6 @@ packer.startup(
 			use {
 				"chun-yang/auto-pairs"
 			}
-
-			-- Theme
-			use "rebelot/kanagawa.nvim"
 
 			-- beautiful scroll
 			use {
@@ -200,7 +188,14 @@ packer.startup(
 
 			-- ColorScheme
 			use {
-				"themysteryboy/nvim-deus",
+				"themysteryboy/mystery",
+				"morhetz/gruvbox",
+				'Mofiqul/vscode.nvim',
+				'tiagovla/tokyodark.nvim',
+				"rebelot/kanagawa.nvim",
+				'folke/tokyonight.nvim',
+
+
 				requires = {
 					"nvim-treesitter/nvim-treesitter"
 				}

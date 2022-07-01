@@ -8,10 +8,10 @@ end
 
 -- UI Settings
 vim.diagnostic.config({
-	virtual_text = true,
+	virtual_text = false,
 	signs = true,
 	underline = false,
-	update_in_insert = false,
+	update_in_insert = true,
 	severity_sort = true,
 })
 

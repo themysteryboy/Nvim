@@ -29,5 +29,15 @@ set t_Co=256
 ]],
 true)
 vim.opt_local.formatoptions = vim.opt_local.formatoptions - {"c", "r", "o"}
-vim.cmd([[colorscheme deus]])
 vim.o.signcolumn = "yes"
+
+-- ================================================
+-- ================Color Scheme====================
+-- ================================================
+vim.o.background = "dark"
+
+-- vim.cmd([[colorscheme tokyonight]])
+vim.cmd([[colorscheme mystery]])
+-- vim.cmd([[colorscheme vscode]])
+-- vim.cmd([[colorscheme tokyodark]])
+-- vim.cmd([[colorscheme gruvbox]])
