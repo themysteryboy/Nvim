@@ -40,4 +40,3 @@ vim.o.background = "dark"
 vim.cmd([[colorscheme mystery]])
 -- vim.cmd([[colorscheme vscode]])
 -- vim.cmd([[colorscheme tokyodark]])
--- vim.cmd([[colorscheme gruvbox]])

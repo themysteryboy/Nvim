@@ -68,7 +68,10 @@ packer.startup(
 
 			-- auto pairs
 			use {
-				"chun-yang/auto-pairs"
+				"windwp/nvim-autopairs",
+			    config = function()
+					require("nvim-autopairs").setup {}
+				end
 			}
 
 			-- beautiful scroll
@@ -194,6 +197,7 @@ packer.startup(
 				'tiagovla/tokyodark.nvim',
 				"rebelot/kanagawa.nvim",
 				'folke/tokyonight.nvim',
+				"glepnir/zephyr-nvim",
 
 
 				requires = {
