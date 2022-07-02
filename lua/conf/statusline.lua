@@ -1,6 +1,8 @@
 local gl = require('galaxyline')
 local condition = require('galaxyline.condition')
 
+gl.short_line_list = { 'NvimTree', 'vista', 'dbui', 'packer' }
+
 -- onedark
 local colors = {
   bg = '#282a36',
@@ -61,8 +63,8 @@ gl.section.left[1] = {
   ViModeIcon = {
     separator = ' ',
     separator_highlight = {colors.black, colors.bg_light},
-    highlight = {colors.white, colors.black},
-    provider = function() return "     " end,
+    highlight = {colors.purple, colors.black, 'bold'},
+    provider = function() return "       " end,
   }
 }
 
@@ -84,7 +86,7 @@ gl.section.left[3] = {
   FileIcon = {
     provider = 'FileIcon',
     condition = condition.buffer_not_empty,
-    highlight = {colors.gray, colors.bg_dim},
+    highlight = {colors.blue, colors.bg_dim},
     -- separator_highlight = {colors.bg_dim, colors.bg_dim},
 	-- separator = ''
   }
@@ -100,16 +102,41 @@ gl.section.left[4] = {
   }
 }
 
+
 gl.section.left[5] = {
+	DiagnosticError = {
+		highlight = { colors.red, colors.bg },
+		icon = ' ',
+		provider = 'DiagnosticError',
+	},
+}
+
+gl.section.left[6] = {
+	DiagnosticWarn = {
+		highlight = { colors.yellow, colors.bg },
+		icon = ' ',
+		provider = 'DiagnosticWarn',
+	},
+}
+
+gl.section.left[7] = {
+	DiagnosticHint = {
+		highlight = {colors.cyan, colors.bg},
+		icon = '  ',
+		provider = 'DiagnosticHint',
+	},
+}
+
+gl.section.left[8] = {
   DiffAdd = {
-    icon = '  ',
+    icon = '  ',
     provider = 'DiffAdd',
     condition = condition.hide_in_width,
     highlight = {colors.white, colors.bg},
   }
 }
 
-gl.section.left[6] = {
+gl.section.left[9] = {
   DiffModified = {
     icon = '  ',
     provider = 'DiffModified',
@@ -118,69 +145,63 @@ gl.section.left[6] = {
   }
 }
 
-gl.section.left[7] = {
+gl.section.left[10] = {
   DiffRemove = {
-    icon = '  ',
+    icon = '  ',
     provider = 'DiffRemove',
     condition = condition.hide_in_width,
     highlight = {colors.gray, colors.bg},
   }
 }
 
--- gl.section.left[8] = {
---   CocStatus = {
---     highlight = {colors.yellow, colors.bg},
---     provider = function()
---       return vim.fn['coc#status']()
---         :gsub('\u{274c}', '\u{f06a}')         -- 
---         :gsub('\u{26a0}\u{fe0f}', '\u{f071}') -- 
---     end
---   }
+-- gl.section.right[0] = {
+-- 	ShowLspClient = {
+-- 		condition = function()
+-- 			local tbl = { ['dashboard'] = true, [''] = true }
+-- 			if tbl[vim.bo.filetype] then
+-- 				return false
+-- 			end
+-- 			return true
+-- 		end,
+-- 		highlight = {colors.gray, colors.bg},
+-- 		icon = ' LSP:',
+-- 		provider = 'GetLspClient',
+-- 	},
 -- }
-
-gl.section.left[9] = {
-  CocFunction = {
-    icon = 'λ ',
-    highlight = {colors.gray, colors.bg},
-    provider = function()
-      local has_func, func_name = pcall(vim.api.nvim_buf_get_var, 0, 'coc_current_function')
-      if not has_func then return '' end
-      return func_name or ''
-    end,
-  }
-}
 
 -- gl.section.right[1] = {
 --   FileType = {
 --     highlight = {colors.gray, colors.bg},
---     provider = function()
---       local buf = require('galaxyline.provider_buffer')
---       return string.lower(buf.get_buffer_filetype())
---     end,
+--     provider = 'FileIcon',
+--     condition = condition.buffer_not_empty,
 --   }
 -- }
 
-gl.section.right[1] = {
-  FileType = {
-    highlight = {colors.gray, colors.bg},
-    provider = 'FileIcon',
-    condition = condition.buffer_not_empty,
-  }
-}
+-- gl.section.right[1] = {
+-- 	IconShow = {
+-- 		condition = condition.hide_in_width,
+-- 		highlight = { colors.purple, colors.bg, 'bold' },
+-- 		separator_highlight = {'NONE', colors.bg},
+-- 		separator = '  ',
+-- 		provider = function()
+-- 			return '   '
+-- 			-- return ' '
+-- 		end,
+-- 	},
+-- }
 
 gl.section.right[2] = {
   GitBranch = {
-    icon = ' ',
-    separator = '  ',
+    icon = '     ',
     condition = condition.check_git_workspace,
-    highlight = {colors.teal, colors.bg},
+    highlight = {colors.gray, colors.bg},
     provider = 'GitBranch',
   }
 }
 
 gl.section.right[3] = {
   FileLocation = {
-    icon = ' ',
+    icon = '  ',
     separator = ' ',
     separator_highlight = {colors.bg_dim, colors.bg},
     highlight = {colors.gray, colors.bg_dim},
@@ -204,7 +225,7 @@ vim.api.nvim_command('hi GalaxyViModeReverse guibg=' .. colors.bg_dim)
 
 gl.section.right[4] = {
   ViMode = {
-    icon = ' ',
+    icon = ' ',
     separator = ' ',
     separator_highlight = 'GalaxyViModeReverse',
     highlight = {colors.bg, mode_color()},
@@ -217,4 +238,28 @@ gl.section.right[4] = {
       return ' ' .. mode .. ' '
     end,
   }
+}
+
+gl.section.short_line_left[1] = {
+	BufferType = {
+		highlight = { colors.blue, colors.bg_dim, 'bold' },
+		provider = 'FileTypeName',
+		separator = ' ',
+		separator_highlight = { 'NONE', colors.bg_dim },
+	},
+}
+
+gl.section.short_line_left[2] = {
+	SFileName = {
+		condition = condition.buffer_not_empty,
+		highlight = { colors.gray, colors.bg, 'bold' },
+		provider = 'SFileName',
+	},
+}
+
+gl.section.short_line_right[1] = {
+	BufferIcon = {
+		highlight = { colors.fg, colors.bg },
+		provider = 'BufferIcon',
+	},
 }

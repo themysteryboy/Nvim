@@ -1,5 +1,5 @@
 require('competitest').setup {
-	local_config_file_name = ".competitest.lua",
+	local_config_file_name = ".cp.lua",
 
 	floating_border = "rounded",
 	floating_border_highlight = "FloatBorder",
@@ -57,12 +57,12 @@ require('competitest').setup {
 		},
 	},
 
-	save_current_file = true,
+	save_current_file = false,
 	save_all_files = false,
 	compile_directory = ".",
 	compile_command = {
 		c = { exec = "gcc", args = { "-Wall", "$(FNAME)", "-o", "$(FNOEXT)" } },
-		cpp = { exec = "g++", args = { "-Wall", "$(FNAME)", "-o", "$(FNOEXT)" } },
+		cpp = { exec = "g++", args = { "-Wall", "$(FNAME)", "-o", "$(FNOEXT).out" } },
 		rust = { exec = "rustc", args = { "$(FNAME)" } },
 		java = { exec = "javac", args = { "$(FNAME)" } },
 	},
@@ -82,7 +82,7 @@ require('competitest').setup {
 	input_name = "input",
 	output_name = "output",
 	testcases_files_format = "$(FNOEXT)_$(INOUT)$(TCNUM).txt",
-	testcases_use_single_file = false,
+	testcases_use_single_file = true,
 	testcases_single_file_format = "$(FNOEXT).testcases",
 
 	companion_port = 27121,

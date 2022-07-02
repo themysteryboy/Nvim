@@ -1,56 +1,86 @@
--- https://github.com/kyazdani42/nvim-tree.lua
+local present, nvimtree = pcall(require, "nvim-tree")
 
-require("nvim-tree").setup(
-    {
-        view = {
-            width = 22,
-            height = 30,
-            -- Show Path
-            hide_root_folder = true,
-        },
-        diagnostics = {
-            -- File Checkhealth
-            enable = true,
-            icons = {
-                hint = "",
-                info = "",
-                warning = "",
-                error = ""
-            }
-        },
-        git = {
-            enable = true,
-            ignore = true,
-            timeout = 500
-        }
-    }
-)
+if not present then
+   return
+end
 
-vim.g.nvim_tree_icons = {
-    default = " ",
-    symlink = " ",
-    git = {
-        unstaged = "",
-        staged = "✓",
-        unmerged = "",
-        renamed = "➜",
-        untracked = "",
-        deleted = "",
-        ignored = ""
+local options = {
+   filters = {
+      dotfiles = false,
+   },
+   disable_netrw = true,
+   hijack_netrw = true,
+   open_on_setup = false,
+   ignore_ft_on_setup = { "alpha" },
+   hijack_cursor = true,
+   hijack_unnamed_buffer_when_opening = false,
+   update_cwd = true,
+   update_focused_file = {
+      enable = true,
+      update_cwd = false,
+   },
+   view = {
+      adaptive_size = true,
+      side = "left",
+      width = 22,
+      hide_root_folder = true,
+   },
+   git = {
+      enable = false,
+      ignore = true,
+   },
+   filesystem_watchers = {
+      enable = true,
     },
-    folder = {
-        -- arrow_open = "╰─▸",
-        -- arrow_closed = "├─▸",
-        arrow_open = "",
-        arrow_closed = "",
-        default = "",
-        open = "",
-        empty = "",
-        empty_open = "",
-        symlink = "",
-        symlink_open = ""
-    }
+   actions = {
+      open_file = {
+         resize_window = true,
+      },
+   },
+   renderer = {
+      highlight_git = false,
+      highlight_opened_files = "none",
+
+      indent_markers = {
+         enable = false,
+      },
+
+      icons = {
+         show = {
+            file = true,
+            folder = true,
+            folder_arrow = true,
+            git = false,
+         },
+
+         glyphs = {
+            default = "",
+            symlink = "",
+            folder = {
+               default = "",
+               empty = "",
+               empty_open = "",
+               open = "",
+               symlink = "",
+               symlink_open = "",
+               arrow_open = "",
+               arrow_closed = "",
+            },
+            git = {
+               unstaged = "✗",
+               staged = "✓",
+               unmerged = "",
+               renamed = "➜",
+               untracked = "★",
+               deleted = "",
+               ignored = "◌",
+            },
+         },
+      },
+   },
 }
+
+nvimtree.setup(options)
 
 
 -- 默认按键

@@ -37,6 +37,6 @@ vim.o.signcolumn = "yes"
 vim.o.background = "dark"
 
 -- vim.cmd([[colorscheme tokyonight]])
-vim.cmd([[colorscheme mystery]])
--- vim.cmd([[colorscheme vscode]])
+-- vim.cmd([[colorscheme mystery]])
+vim.cmd([[colorscheme vscode]])
 -- vim.cmd([[colorscheme tokyodark]])
