@@ -3,15 +3,22 @@ local packer = require("packer")
 packer.startup(
 	{
 		function()
-
-			-- Competitive Programmig
+			-- Zen Mode
 			use {
-				'xeluxee/competitest.nvim',
-				requires = 'MunifTanjim/nui.nvim',
-				config = function ()
-					require("conf.cp")
-				end
-			}
+			  "folke/zen-mode.nvim",
+			  config = function()
+				  require("conf.zen")
+			  end
+			}	
+			
+			-- Competitive Programmig
+			-- use {
+			-- 	'xeluxee/competitest.nvim',
+			-- 	requires = 'MunifTanjim/nui.nvim',
+			-- 	config = function ()
+			-- 		require("conf.cp")
+			-- 	end
+			-- }
 
 			-- lsp beautify
 			use({
@@ -200,14 +207,13 @@ packer.startup(
 
 			-- ColorScheme
 			use {
-				"themysteryboy/mystery",
+				"themysteryboy/nvim-mystery",
 				"morhetz/gruvbox",
 				'Mofiqul/vscode.nvim',
 				'tiagovla/tokyodark.nvim',
 				"rebelot/kanagawa.nvim",
 				'folke/tokyonight.nvim',
 				"glepnir/zephyr-nvim",
-
 
 				requires = {
 					"nvim-treesitter/nvim-treesitter"

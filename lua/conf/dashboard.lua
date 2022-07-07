@@ -1,5 +1,6 @@
 local home = os.getenv('HOME')
 local db = require('dashboard')
+
 db.preview_command = 'cat | lolcat -F 0.3'
 db.preview_file_path = home .. '/.config/nvim/lua/conf/db.cat'
 db.preview_file_height = 12
@@ -18,4 +19,3 @@ db.custom_center = {
 	action = 'Telescope live_grep',
 	shortcut = 'SPC f w'},
 }
-
